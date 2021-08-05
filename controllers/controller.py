@@ -18,6 +18,11 @@ def add_event():
     event_location = request.form['location']
     event_guests = request.form['guests']
     event_description = request.form['description']
-    new_event = Event(event_date, event_name, event_guests, event_location, event_description)
+    event_recurring = request.form['recurring']
+    if event_recurring == 'on':
+        event_recurring = True
+    else:
+        event_recurring = False
+    new_event = Event(event_date, event_name, event_guests, event_location, event_description, event_recurring)
     add_new_event(new_event)
     return render_template('index.html', events = events)
