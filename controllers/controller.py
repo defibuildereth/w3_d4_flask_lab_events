@@ -15,6 +15,7 @@ def new_event():
 def add_event():
     event_name = request.form['name']
     event_date = request.form['date']
+    print(event_date)
     event_location = request.form['location']
     event_guests = request.form['guests']
     event_description = request.form['description']
